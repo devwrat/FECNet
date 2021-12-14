@@ -25,17 +25,19 @@ names3 = []
 types = []
 modes = []
 for i in range(0,446535):
-    name1 = "data/train/" + dataset.iloc[i, 0].split('/')[-1]
-    name2 = "data/train/" + dataset.iloc[i, 5].split('/')[-1]
-    name3 = "data/train/" + dataset.iloc[i, 10].split('/')[-1]
+    name1 = "train/" + dataset.iloc[i, 0].split('/')[-1]
+    name2 = "train/" + dataset.iloc[i, 5].split('/')[-1]
+    name3 = "train/" + dataset.iloc[i, 10].split('/')[-1]
     the_type = dataset.iloc[i, 15]
     mode = grade_mode([dataset.iloc[i, 17],dataset.iloc[i, 19],dataset.iloc[i, 21],dataset.iloc[i, 23],dataset.iloc[i, 25],dataset.iloc[i, 27]])
-    print(mode)
+    #print("mode = ", mode)
     names1.append(name1)
     names2.append(name2)
     names3.append(name3)
     types.append(the_type)
     modes.append(mode[0])
+    if (i % 1000 == 0):
+        print("i = ", i)
 
 
 new_dataset[0]=names1
